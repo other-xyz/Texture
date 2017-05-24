@@ -83,6 +83,7 @@ static NSString * const kRate = @"rate";
   CMTime _timeObserverInterval;
   
   CMTime _lastPlaybackTime;
+  float _playbackRate;
 	
   ASDisplayNode *_playerNode;
   NSString *_gravity;
@@ -105,6 +106,7 @@ static NSString * const kRate = @"rate";
   }
 
   self.gravity = AVLayerVideoGravityResizeAspect;
+  _playbackRate = 1.0;
   _periodicTimeObserverTimescale = 10000;
   [self addTarget:self action:@selector(tapped) forControlEvents:ASControlNodeEventTouchUpInside];
   _lastPlaybackTime = kCMTimeZero;
@@ -669,7 +671,7 @@ static NSString * const kRate = @"rate";
   }
   
   
-  [_player play];
+  _player.rate = _playbackRate;
   _shouldBePlaying = YES;
   __instanceLock__.unlock();
 }

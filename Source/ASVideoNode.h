@@ -67,6 +67,8 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, assign, readwrite) BOOL shouldAutoplay;
 @property (nonatomic, assign, readwrite) BOOL shouldAutorepeat;
+//! Defaults to 1
+@property (nonatomic, assign) float playbackRate;
 
 @property (nonatomic, assign, readwrite) BOOL muted;
 @property (nonatomic, assign, readwrite) BOOL shouldAggressivelyRecoverFromStall;
